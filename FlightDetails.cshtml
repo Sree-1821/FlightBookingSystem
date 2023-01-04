@@ -1,0 +1,93 @@
+﻿@model IEnumerable<Web_MVC.Models.FlightViewModel>
+
+@{
+    ViewBag.Title = "FlightDetails";
+}
+
+<style>
+    #background {
+        background-image: url('../../images/registerpage1.jpg');
+        background-image: background-position: inherit;
+        background-repeat: no-repeat;
+        background-size: 100% 300%;
+    }
+
+    th, tr, td {
+        height: 40px;
+        font-size: 20px;
+    }
+
+    table, h1 {
+        margin-left: 280px;
+    }
+</style>
+
+<h1>FlightDetails</h1>
+
+<body id="background">
+    <table class="table" cellpadding="10">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FlightNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FlightId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Start)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Destination)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Arrival)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Departure)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fare)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FlightNo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FlightId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Start)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Destination)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Arrival)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Departure)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Fare)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.FlightNo })
+                </td>
+            </tr>
+        }
+
+    </table>
+</body>

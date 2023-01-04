@@ -1,0 +1,377 @@
+﻿@model Web_API.Models.Customer
+
+@*<style>
+        #textbox {
+            height: 20px;
+            border-radius: 6px;
+            box-sizing: border-box;
+        }
+
+        #form_registration {
+            background: #312A24;
+            width: 30%;
+            border-radius: 3%;
+            height: 0%;
+            position: fixed;
+            left: 2%;
+            top: 16%;
+            color: #000f
+        }
+
+        #backgroundimage {
+            background-image: url('../images/Registration.jpg');
+            background-position: inherit;
+            background-repeat: no-repeat;
+            background-size: 100% 1222%;
+        }
+
+        #registerbutton {
+            width: 10em;
+            height: 3em;
+            background: Darkgrey;
+            border-radius: 10px;
+            box-sizing: border-box;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+        #home_btn, a:-webkit-any-link {
+            color: #D5AD6D;
+            background: #312A24;
+            width: fit-content;
+        }
+    </style>*@
+
+@*<style>
+
+   #bg {
+        background-image: url('../../images/home.png.png');
+        background-image: position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        filter: blur(5px);
+    }
+
+    #background {
+        background-image:  background-position: inherit;
+        background-image: url('../../images/registerpage.jpg');
+        background-repeat: no-repeat;
+        background-size: 100% 254%;
+        padding: 0px;
+    }
+
+    body {
+        font-family: 'Lato', sans-serif;
+        color: #4A4A4A;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+    }
+
+
+    form {
+        width: 350px;
+        position: relative;
+    }
+
+        form .form-field::before {
+            font-size: 20px;
+            position: absolute;
+            left: 15px;
+            top: 17px;
+            color: #888888;
+            content: " ";
+            display: block;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        form .form-field:nth-child(1)::before {
+            background-image: url(img/user-icon.png);
+            width: 20px;
+            height: 20px;
+            top: 15px;
+        }
+
+        form .form-field:nth-child(2)::before {
+            background-image: url(img/lock-icon.png);
+            width: 16px;
+            height: 16px;
+        }
+
+        form .form-field {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+            justify-content: space-between;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        form input {
+            font-family: inherit;
+            width: 100%;
+            outline: none;
+            background-color: #fff;
+            border-radius: 4px;
+            border: none;
+            display: block;
+            padding: 0.9rem 0.7rem;
+            box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+            font-size: 17px;
+            color: #4A4A4A;
+            text-indent: 40px;
+        }
+
+        form .btn {
+            outline: none;
+            border: none;
+            cursor: pointer;
+            display: inline-block;
+            margin: 0 auto;
+            padding: 0.9rem 2.5rem;
+            text-align: center;
+            background-color: #47AB11;
+            color: #fff;
+            border-radius: 4px;
+            box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+            font-size: 17px;
+        }
+</style>*@
+
+<style>
+    input[type=text], input[type=password] {
+        width: 100%;
+        margin: 10px 0;
+        border-radius: 5px;
+        padding: 15px 18px;
+        box-sizing: border-box;
+    }
+
+    button {
+        background-color: #ff0000;
+        color: white;
+        padding: 14px 20px;
+        border-radius: 5px;
+        margin: 7px 0;
+        width: 100%;
+        font-size: 18px;
+    }
+
+
+
+        button:hover {
+            opacity: 0.6;
+            cursor: pointer;
+        }
+
+    body {
+        font-family: sans-serif;
+        background: -webkit-linear-gradient(to right, #155799, #159957);
+        background: linear-gradient(to right, #155799, #159957);
+        color: whitesmoke;
+    }
+
+
+
+    .form-group.last {
+        margin-bottom: 0px;
+    }
+
+
+
+
+
+
+
+
+    h1 {
+        text-align: center;
+    }
+
+
+
+
+    form {
+        width: 35rem;
+        margin: auto;
+        color: whitesmoke;
+    }
+
+
+
+    input {
+        width: 100%;
+        margin: 10px 0;
+        border-radius: 5px;
+        padding: 15px 18px;
+        box-sizing: border-box;
+    }
+
+
+
+    button {
+        background-color: #030804 padding: 14px 20px;
+        border-radius: 5px;
+        margin: 7px 0;
+        width: 100%;
+        font-size: 18px;
+    }
+
+
+
+        button:hover {
+            opacity: 0.6;
+            cursor: pointer;
+        }
+</style>
+
+
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <table>
+        <tr>
+            <h2 id="home_btn">@Html.ActionLink("Home", "HomePage")</h2>
+        </tr>
+    </table>
+    <div class="form-horizontal" id="form_registration">
+        <body id="backgroundimage">
+            <div style="justify-content: center;">
+                <form style="background: gainsboro;height:35em" method="post">
+                    <table style="font-size: 25px; font-family: serif;">
+                        <tr><h1 style="text-align: center; font-family: Georgia, 'Times New Roman', Times, serif;">Registration</h1></tr>
+                        @*<tr>
+                                <td>
+                                    @Html.LabelFor(model => model.CustomerID, htmlAttributes: new { @class = "control-label col-md-2" })
+                                </td>
+                                <td>
+                                    @Html.EditorFor(model => model.CustomerID, new { htmlAttributes = new { @class = "form-control", @id = "textbox" } })
+                                </td>
+                                <td style="color:red">
+                                    @Html.ValidationMessageFor(model => model.CustomerID, "", new { @class = "text-danger" })
+                                </td>
+                            </tr>*@
+                        <tr>
+                            <td>
+                                @Html.LabelFor(model => model.Firstname, htmlAttributes: new { @class = "control-label col-md-2" })
+                            </td>
+                            <td>
+                                @Html.EditorFor(model => model.Firstname, new { htmlAttributes = new { @class = "form-control", @id = "textbox" } })
+                            </td>
+                            <td style="color:red">
+                                @Html.ValidationMessageFor(model => model.Firstname, "", new { @class = "text-danger" })
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>@Html.LabelFor(model => model.Lastname, htmlAttributes: new { @class = "control-label col-md-2" })</td>
+                            <td>
+                                @Html.EditorFor(model => model.Lastname, new { htmlAttributes = new { @class = "form-control", @id = "textbox" } })
+                            </td>
+                            <td style="color:red">
+                                @Html.ValidationMessageFor(model => model.Lastname, "", new { @class = "text-danger" })
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                @Html.LabelFor(model => model.Age, htmlAttributes: new { @class = "control-label col-md-2" })
+                            </td>
+                            <td>
+                                @Html.EditorFor(model => model.Age, new { htmlAttributes = new { @class = "form-control", @id = "textbox" } })
+                            </td>
+                            <td style="color:red">
+                                @Html.ValidationMessageFor(model => model.Age, "", new { @class = "text-danger" })
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                @Html.LabelFor(model => model.Gender, htmlAttributes: new { @class = "control-label col-md-2" })
+                            </td>
+                            <td style="font-size: 60%;">
+                                Male
+                                @Html.RadioButtonFor(model => model.Gender, "Male")
+                                Female
+                                @Html.RadioButtonFor(model => model.Gender, "Female")
+                            </td>
+                            <td style="color:red">
+                                @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                @Html.LabelFor(model => model.EmailID, htmlAttributes: new { @class = "control-label col-md-2" })
+                            </td>
+                            <td>
+                                @Html.EditorFor(model => model.EmailID, new { htmlAttributes = new { @class = "form-control", @id = "textbox" } })
+                            </td>
+                            <td style="color:red">
+                                @Html.ValidationMessageFor(model => model.EmailID, "", new { @class = "text-danger" })
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                @Html.LabelFor(model => model.MobileNumber, htmlAttributes: new { @class = "control-label col-md-2" })
+                            </td>
+                            <td>
+                                @Html.EditorFor(model => model.MobileNumber, new { htmlAttributes = new { @class = "form-control", @id = "textbox" } })
+                            </td>
+                            <td style="color:red">
+                                @Html.ValidationMessageFor(model => model.MobileNumber, "", new { @class = "text-danger" })
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                @Html.LabelFor(model => model.Username, htmlAttributes: new { @class = "control-label col-md-2" })
+                            </td>
+                            <td>
+                                @Html.EditorFor(model => model.Username, new { htmlAttributes = new { @class = "form-control", @id = "textbox" } })
+                            </td>
+                            <td style="color:red">
+                                @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
+                            </td>
+                            <td>
+                                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", @id = "textbox", @type = "password" } })
+                            </td>
+                            <td style="color:red">
+                                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" align="center"><input type="submit" value="Register" id="registerbutton" /></td>
+                        </tr>
+
+                    </table>
+                    <div>
+                        <tr>
+                            @ViewBag.Successmessage
+                            <center> @Html.ActionLink("   Click here to Login", "LoginUser")</center>
+                            @ViewBag.userAlreadymessage
+                            @ViewBag.MobileLengthmessage
+                            @ViewBag.MobileExistmessage
+                            @ViewBag.EmailExistmessage
+                        </tr>
+                    </div>
+                </form>
+            </div>
+        </body>
+    </div>
+}
+
+

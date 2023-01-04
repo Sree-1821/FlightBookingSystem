@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewBag.Title = "HomePage";
+}
+@Html.ActionLink("AdminLogin", "AdminLoginUser")
+<style>
+    #background {
+        background-image: url('../../images/flighthome.jpg');
+        background-image: background-image: background-position: inherit;
+        background-repeat: no-repeat;
+        background-size: 100% 400%;
+        padding: 0px;
+    }
+
+    #Booking_Heading {
+        font-family: Georgia, 'Times New Roman', Times, serif; /*"Times New Roman", serif;*/
+        margin: 0px;
+        text-align: center;
+    }
+
+    #text_homePage {
+        font-family: Georgia, 'Times New Roman', Times, serif
+    }
+</style>
+<body id="background">
+    <div>
+        <h1 id="Booking_Heading">ONLINE FLIGHT BOOKING SYSTEM</h1>
+    </div>
+    <div style="padding-top: 55px;">
+        <h2 id="text_homePage">MAKE IT SIMPLE,ENJOY THE TRIPS </h2>
+        <h2 id="text_homePage">
+            @Html.ActionLink("Login", "LoginUser") to use our services or @Html.ActionLink("Click Here to Register", "RegisterUser")
+        </h2>
+    </div>
+</body>
+
+
